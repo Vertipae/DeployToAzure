@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= 'My favourite music'
+  ul
+  each music in musics
+    li= music.year + ': ' + music.band

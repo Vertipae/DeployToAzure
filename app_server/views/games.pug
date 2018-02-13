@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= 'My favourite games'
+  ul
+  each game in games
+    li=game.year + ': ' + game.title + ', ' + game.genre
