@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 
 
-
 var app = express();
 
 const index = require('./app_server/routes/index');
