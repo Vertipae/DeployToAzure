@@ -1,22 +1,32 @@
+const request = require('request');
+const apiURL = require('./apiURLs');
 
 const musiclist = function(req, res) {
-  res.render('music', {
-    musics:
-
-    [
-      { year:'1981', band:'Metallica'},
-      { year:'1990', band:'In Flames'},
-      { year:'1997', band:'Hardcore Superstar'},
-      { year:'1998', band:'Mustasch'},
-      { year:'2004', band:'Bring Me the Horizon'},
-      { year:'2005', band:'Five Finger Death Punch'},
-      { year:'2005', band:'Periphery'},
-      { year:'2008', band:'Asking Alexandria'},
-      { year:'2009', band:'Of Mice & Men'},
-      { year:'2010', band:'The Plot in You'},
-      { year:'2016', band:'Bad Omens'}
-    ]});
+  const path = '/api/music';
+  const requestOptions = {
+    url : apiURL.server + path,
+    method : 'GET',
+    json : {},
+    qs : {}
   };
+
+  request (
+    requestOptions,
+    function (err, response, body) {
+      if (err) {
+        res.render('error', {message: err.message});
+      } else if (response.statusCode !== 200) {
+        res.render('error', {message: 'Error accessing API: ' + response.statusMessage + " ("+ response.statusCode + ")"});
+      } else if (!body instanceof Array) {
+        res.render('error', {message: 'Unexpected response of data'});
+      } else if (!body.length) {
+        res.render('error', {message: 'No documents in collection'});
+      } else {
+        res.render('music', {musics: body});
+      }
+    }
+  );
+};
   module.exports = {
     musiclist
   };
