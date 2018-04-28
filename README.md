@@ -6,7 +6,7 @@ This is repository for a training application for the Laurea course Web App Deve
 # Technology
 
 This application is implemented with Node.js, layouts rendered with pug and database is mongoDB, running in mlab.
-Appearance is enhanced with Bootsrap 4.0. Production is running in Microsoft Azure.
+Appearance is enhanced with Bootsrap 4.0. Production is running in Microsoft Azure. Also, REST API implemented using Express framework.
 
 # Building the app
 
