@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .row
+    h4 New game
+  form(action="", method="post")
+    .form-group.row
+      label Title
+        input.form-control(name="title")
+    .form-group.row
+      label Year
+        input.form-control(name="year")
+    .form-group.row
+      label Genre
+        input.form-control(name="genre")
+    .form-group.row
+      button.btn-primary Add

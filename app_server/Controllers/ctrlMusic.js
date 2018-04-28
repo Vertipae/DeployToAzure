@@ -1,6 +1,37 @@
 const request = require('request');
 const apiURL = require('./apiURLs');
 
+const showForm = function(req, res) {
+  res.render('music_add');
+};
+
+const addData = function(req, res) {
+  const path = '/api/music';
+
+  const postdata = {
+    year: req.body.year,
+    band: req.body.band,
+  };
+
+  const requestOptions = {
+    url : apiURL.server + path,
+    method : 'POST',
+    json : postdata
+  };
+
+  request (
+    requestOptions,
+    function (err, response) {
+      if (response.statusCode === 201) {
+        res.redirect('/music');
+      }else{
+        res.render('error', {message: 'Error adding data: ' + response.statusMessage + ' ()' + response.statusCode + ')'});
+      }
+    }
+  );
+};
+
+
 const musiclist = function(req, res) {
   const path = '/api/music';
   const requestOptions = {
@@ -28,5 +59,7 @@ const musiclist = function(req, res) {
   );
 };
   module.exports = {
-    musiclist
+    musiclist,
+    showForm,
+    addData
   };
