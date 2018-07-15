@@ -15,4 +15,12 @@ Appearance is enhanced with Bootsrap 4.0. Production is running in Microsoft Azu
 3. `npm install`
 4. `npm start`
 
+Pictures of the app
+
+![](https://raw.githubusercontent.com/Vertipae/DeployToAzure/master/img/Mean1.PNG)
+![](https://raw.githubusercontent.com/Vertipae/DeployToAzure/master/img/Mean2.PNG)
+![](https://raw.githubusercontent.com/Vertipae/DeployToAzure/master/img/Mean3.PNG)
+![](https://raw.githubusercontent.com/Vertipae/DeployToAzure/master/img/Mean4.PNG)
+
+
 © Sallamaarit Jaako 2018
